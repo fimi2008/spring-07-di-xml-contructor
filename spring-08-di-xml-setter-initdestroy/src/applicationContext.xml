@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+         
+	<bean class="com.shine.spring.di.xml.setterinitdestroy.Person" id="person" init-method="init" destroy-method="destroy">
+	<!-- 
+		property描述的就是bean中的属性
+		name属性就是描述属性的名称
+		value就是值, 如果是基本属性(包含String类型),就用value赋值
+		ref 如果是引用类型,用ref赋值
+	 -->
+		<property name="pid" value="1"></property>
+		<property name="name" value="王大翔"></property>
+		<property name="student" ref="student"></property>
+		<property name="lists">
+			<list>
+				<value>list1</value>
+				<value>list2</value>
+				<ref bean="student"/>
+			</list>
+		</property>
+		<property name="objs">
+			<list>
+				<value>obj1</value>
+				<ref bean="student"/>
+			</list>
+		</property>
+		<property name="sets">
+			<set>
+				<value>set1</value>
+				<ref bean="student"/>
+			</set>
+		</property>
+		<property name="map">
+			<map>
+				<entry key="map1">
+					<value>map1</value>
+				</entry>
+				<entry key="m2">
+					<ref bean="student"/>
+				</entry>
+			</map>
+		</property>
+		<property name="properties">
+			<props>
+				<prop key="p1">p1</prop>
+				<prop key="p2">p2</prop>
+			</props>
+		</property>
+	</bean>
+	<bean class="com.shine.spring.di.xml.setterinitdestroy.Student" id="student"></bean>
+</beans>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+         
+	<bean id="person" class="com.shine.spring.di.xml.constructor.Person">
+		<!-- 
+			constructor-arg  代表某一个构造器的参数
+			  index 构造器参数的下标
+			  value
+			  ref
+			  type  类型
+		 -->
+		<constructor-arg index="0" value="1" type="java.lang.String"></constructor-arg>
+		<constructor-arg index="1" ref="student"></constructor-arg>
+	</bean>
+	<bean id="student" class="com.shine.spring.di.xml.constructor.Student"></bean>
+</beans>
